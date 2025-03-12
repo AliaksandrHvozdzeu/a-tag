@@ -25,11 +25,10 @@ jobs:
       - run: npm run build --if-present
 
       - name: Get Current Version
-        id: package_version
         run: echo "VERSION=$(jq -r .version package.json)" >> $GITHUB_ENV
 
       - name: Debug Version
-        run: echo "Version from package.json: $VERSION"
+        run: echo "Version from package.json: ${{ env.VERSION }}"
 
       - name: Create GitHub Release
         if: github.ref == 'refs/heads/main'
