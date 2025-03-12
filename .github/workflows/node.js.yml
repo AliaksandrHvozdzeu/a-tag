@@ -27,9 +27,6 @@ jobs:
     - name: Get Current Version
       run: echo "VERSION=$(jq -r .version package.json)" >> $GITHUB_ENV
 
-    - name: Debug Version
-      run: echo "Version from package.json: $VERSION"
-
     - name: Create GitHub Release
       if: github.ref == 'refs/heads/main'
       uses: softprops/action-gh-release@v2
